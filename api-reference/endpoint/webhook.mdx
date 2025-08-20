@@ -1,4 +1,104 @@
 ---
-title: 'New Plant'
-openapi: 'WEBHOOK /plant/webhook'
+title: "New Plant"
+openapi: "WEBHOOK /plant/webhook"
 ---
+
+---
+
+title: "Webhook API - ASIA HR TEH"
+
+description: "Documentation for using webhooks in ASIA HR TEH platform"
+
+---
+
+\<Info\>
+
+Webhooks allow ASIA HR TEH to send real-time notifications to your server when specific events occur.
+
+\</Info\>
+
+## Supported Events
+
+\<AccordionGroup\>
+
+\<Accordion title="Plan Created"\>
+
+Triggered when a new subscription plan is created.
+
+\</Accordion\>
+
+\<Accordion title="Plan Updated"\>
+
+Triggered when an existing plan is updated.
+
+\</Accordion\>
+
+\<Accordion title="Plan Deleted"\>
+
+Triggered when a plan is deleted.
+
+\</Accordion\>
+
+\<Accordion title="User Subscription Changed"\>
+
+Triggered when a user's subscription status changes.
+
+\</Accordion\>
+
+\</AccordionGroup\>
+
+## Creating a Webhook
+
+\<Steps\>
+
+\<Step title="Register Webhook URL"\>
+
+Send a POST request to the webhook endpoint with your callback URL.
+
+  
+
+\<RequestExample\>
+
+\`\`\`bash cURL
+
+curl -X POST 'https://api.asiahrteh.com/v1/webhooks' \\
+
+  -H 'Authorization: Bearer YOUR_ASIA_HR_TEH_API_KEY' \\
+
+  -H 'Content-Type: application/json' \\
+
+  -d '{
+
+    "url": "https://yourserver.com/webhook",
+
+    "events": ["plan_created", "plan_updated"]
+
+  }'
+
+\</RequestExample\> \<Check\> Verify that the response returns `id` and `status: active`. \</Check\> \</Step\> \<Step title="Handle Incoming Webhook"\> Your server should accept POST requests at the specified URL and process JSON payloads. \</Step\> \<Step title="Verify Webhook Signature"\> Check the `X-ASIAHRTEH-Signature` header to validate requests. \</Step\> \</Steps\>
+
+Response Example
+
+\<ResponseExample\> \`\`\`json Success { "id": "webhook_001", "url": "https://yourserver.com/webhook", "events": ["plan_created", "plan_updated"], "status": "active", "created_at": "2025-08-21T12:45:00Z" } \`\`\` \</ResponseExample\>
+
+Parameters
+
+\<ParamField body="url" type="string" required\> The callback URL where ASIA HR TEH will send event notifications. \</ParamField\> \<ParamField body="events" type="array" required\> List of event types to subscribe to. Example: ["plan_created", "plan_updated"]. \</ParamField\> \<ParamField header="Authorization" type="string" required\> Bearer token for API authentication. Format: `Bearer YOUR_ASIA_HR_TEH_API_KEY` \</ParamField\>
+
+Notes / Tips
+
+\<Note\> Webhooks deliver events in near real-time but may retry on failures. \</Note\> \<Tip\> Always validate the signature header to ensure payload authenticity. \</Tip\> \`\`\`
+
+✅ Save this as:
+
+bash
+
+Copy code
+
+docs/api/webhook.mdx
+
+Fully branded for ASIA HR TEH.
+
+Uses Mintlify components (\<Info\>, \<Accordion\>, \<Steps\>, \<RequestExample\>, \<ResponseExample\>, \<ParamField\>, \<Check\>, \<Note\>, \<Tip\>).
+
+Ready for Windsurf / Mintlify workflow.

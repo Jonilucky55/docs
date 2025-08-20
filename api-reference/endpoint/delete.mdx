@@ -1,4 +1,30 @@
 ---
-title: 'Delete Plant'
-openapi: 'DELETE /plants/{id}'
+title: "Delete Plant"
+openapi: "DELETE /plants/{id}"
 ---
+
+---
+
+title: "Delete Plan API - ASIA HR TEH"
+
+description: "Endpoint to delete an existing subscription plan in ASIA HR TEH platform"
+
+---
+
+\<Info\>
+
+This endpoint allows you to delete a subscription plan from the ASIA HR TEH system.
+
+\</Info\>
+
+## Request Example
+
+\<RequestExample\>
+
+\`\`\`bash cURL
+
+curl -X DELETE 'https://api.asiahrteh.com/v1/plans/plan_asia_001' \\
+
+  -H 'Authorization: Bearer YOUR_ASIA_HR_TEH_API_KEY' \\
+
+  -H 'Content-Type: application/json'

@@ -1,4 +1,40 @@
 ---
-title: 'Create Plant'
-openapi: 'POST /plants'
+title: "Create Plant"
+openapi: "POST /plants"
 ---
+
+---
+
+title: "Create Plan API - ASIA HR TEH"
+
+description: "Endpoint to create a new subscription plan in ASIA HR TEH platform"
+
+---
+
+\<Info\>
+
+This endpoint allows you to create a new subscription plan for ASIA HR TEH users.
+
+\</Info\>
+
+## Request Example
+
+\<RequestExample\>
+
+\`\`\`bash cURL
+
+curl -X POST 'https://api.asiahrteh.com/v1/plans' \\
+
+  -H 'Content-Type: application/json' \\
+
+  -H 'Authorization: Bearer YOUR_ASIA_HR_TEH_API_KEY' \\
+
+  -d '{
+
+    "name": "Premium Plan",
+
+    "price": 49.99,
+
+    "duration_months": 12
+
+  }'
